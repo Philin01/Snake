@@ -30,14 +30,19 @@ public:
 	//FloorGrid variables
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AFloorBlockBase> BlockClass;
+
 	UPROPERTY()
 	TArray<AFloorBlockBase*> FloorGrid;
+
 	UPROPERTY()
 	AFloorBlockBase* FloorBlock;
+
 	UPROPERTY(EditDefaultsOnly)
 	int X;
+
 	UPROPERTY(EditDefaultsOnly)
 	int Y;
+
 	UPROPERTY(EditDefaultsOnly)
 	float Distance;
 
@@ -52,37 +57,52 @@ public:
 	//Food bonus or debuf variables
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AFoodSpeedUpBonus> FoodSpeedUpBonusClass;
+
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AFoodSpeedDownDebuf> FoodSpeedDownDebufClass;
+
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AFoodBarrierIgnoreBonus> FoodBarrierIgnoreBonusClass;
+
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<ADoubleFoodBonus> DoubleFoodBonusClass;
+
 	UPROPERTY(EditDefaultsOnly)
 	float RandSpeedUpBonusValue;
+
 	UPROPERTY(EditDefaultsOnly)
 	float RandSpeedDownDebufValue;
+
 	UPROPERTY(EditDefaultsOnly)
 	float RandBarrierIgnoreBonusValue;
+
 	UPROPERTY(EditDefaultsOnly)
 	float RandDoubleFoodBonusValue;
 
 	//Barrier variables
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<ABarrierBase> BarrierClass;
+
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AFakeBarrier> FakeBarrierClass;
+
 	UPROPERTY()
 	ABarrierBase* BarrierPtr;
+
 	UPROPERTY()
 	AFakeBarrier* FakeBarrierPtr;
+
 	UPROPERTY()
 	TArray<ABarrierBase*> BarriersArray;
+
 	UPROPERTY(EditDefaultsOnly)
 	int DefaultBarrierNum;
+
 	FTimerHandle SpawnBarrierTimerHandle;
+
 	UPROPERTY(EditDefaultsOnly)
 	float RandSpawnFakeBarrierValue;
+
 	int SubtractionBarrierValue = 1;
 
 	//Snake variables
