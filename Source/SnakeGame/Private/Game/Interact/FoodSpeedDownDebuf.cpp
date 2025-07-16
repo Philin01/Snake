@@ -13,6 +13,7 @@ void AFoodSpeedDownDebuf::Interact(AActor* Interactor, bool bIsHead)
 		{
 			Snake->AddNewElement();
 			Snake->SetMovementSpeed(2.0f);
+			Snake->SpeedDownEnable = true;
 			Snake->TimerResetMovementSpeed();
 			Snake->ScoreCounter += 1;
 			Snake->PlayfromStartTimline();

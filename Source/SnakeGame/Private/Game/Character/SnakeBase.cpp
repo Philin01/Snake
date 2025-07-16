@@ -140,8 +140,9 @@ void ASnakeBase::Move()
 		CurrentElement->SetActorLocation(PrevLocation);
 	}
 
+	
 	SnakeElements[0]->AddActorWorldOffset(MovementVector);
-
+	
 	if (!bIsImmortal)
 	{
 		SnakeElements[0]->ToggleCollision();
@@ -188,11 +189,13 @@ void ASnakeBase::TimerResetImmortal()
 void ASnakeBase::SetBarrierCollision()
 {
 	SnakeElements[0]->BarrierCollisionDisabled();
+	BarrierIgnoreEnable = true;
 }
 
 void ASnakeBase::ResetBarrierCollision()
 {
 	SnakeElements[0]->BarrierCollisionEnabled();
+	BarrierIgnoreEnable = false;
 }
 
 void ASnakeBase::TimerResetBarrierCollisionFunc()
@@ -208,6 +211,8 @@ void ASnakeBase::SetMovementSpeed(float Value)
 void ASnakeBase::ResetMovementSpeed()
 {
 	SetActorTickInterval(MovementSpeed);
+	SpeedUpEnable = false;
+	SpeedDownEnable = false;
 }
 
 void ASnakeBase::TimerResetMovementSpeed()
@@ -244,4 +249,3 @@ void ASnakeBase::AddWidgetWinGame_Implementation()
 		bIsWin = Player->bWinGame = true;
 	}
 }
-

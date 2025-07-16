@@ -13,6 +13,7 @@ void AFoodSpeedUpBonus::Interact(AActor* Interactor, bool bIsHead)
 		{
 			Snake->AddNewElement();
 			Snake->SetMovementSpeed(0.5f);
+			Snake->SpeedUpEnable = true;
 			Snake->TimerResetMovementSpeed();
 			Snake->ScoreCounter += 1;
 			Snake->PlayfromStartTimline();

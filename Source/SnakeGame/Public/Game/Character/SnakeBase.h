@@ -35,37 +35,63 @@ public:
 	//Snake variables
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<ASnakeElementBase> SnakeElementClass;
+
 	UPROPERTY(BlueprintReadWrite)
 	ASnakeElementBase* SnakeElement;
+
 	UPROPERTY(EditDefaultsOnly)
 	float ElementSize;
+
 	UPROPERTY(EditAnywhere)
 	float MovementSpeed;
+
 	UPROPERTY(EditAnywhere)
 	float HungerSnakeMax;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float HungerSnakePercent;
+
 	UPROPERTY(EditAnywhere)
 	float HungerSnakeScl;
+
 	UPROPERTY(BlueprintReadWrite)
 	EMovementDirection LastMoveDirection;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TArray<ASnakeElementBase*> SnakeElements;
+
 	UPROPERTY(EditDefaultsOnly)
 	int ElementsNum = 1;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int ScoreCounter = 0;
+
 	UPROPERTY(EditDefaultsOnly)
 	float IgnoreBarrierTime;
+
 	bool bIsMove;
+
 	bool bIsImmortal;
+
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly)
 	bool bIsWin;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool SpeedUpEnable;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool SpeedDownEnable;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool BarrierIgnoreEnable;
+
 	FTimerHandle ImmortalTimerHandle;
+
 	FTimerHandle ResetSpeedTimerHandle;
 
 	//Player variables
 	APlayerPawn* Player;
+
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<APlayerPawn> PlayerClass;
 

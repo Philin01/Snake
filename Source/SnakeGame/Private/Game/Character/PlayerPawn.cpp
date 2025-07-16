@@ -13,6 +13,7 @@ APlayerPawn::APlayerPawn()
 	PrimaryActorTick.bCanEverTick = true;
 
 	PawnCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("PawnCamera"));
+	PawnCamera->SetProjectionMode(ECameraProjectionMode::Perspective);
 	RootComponent = PawnCamera;
 	bStartGame = false;
 	bEndGame = false;
@@ -24,9 +25,9 @@ void APlayerPawn::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	//SetPaused(true);
+	SetPaused(true);
 	SetActorRotation(FRotator(-50, 0, 0));
-	SetActorLocation(FVector(-820, 0, 1000));
+	SetActorLocation(FVector(-850, 0, 1000));
 	CreateSnakeActor();
 }
 
