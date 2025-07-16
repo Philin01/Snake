@@ -189,13 +189,13 @@ void ASnakeBase::TimerResetImmortal()
 void ASnakeBase::SetBarrierCollision()
 {
 	SnakeElements[0]->BarrierCollisionDisabled();
-	BarrierIgnoreEnable = true;
+	bBarrierIgnoreEnable = true;
 }
 
 void ASnakeBase::ResetBarrierCollision()
 {
 	SnakeElements[0]->BarrierCollisionEnabled();
-	BarrierIgnoreEnable = false;
+	bBarrierIgnoreEnable = false;
 }
 
 void ASnakeBase::TimerResetBarrierCollisionFunc()
@@ -211,13 +211,28 @@ void ASnakeBase::SetMovementSpeed(float Value)
 void ASnakeBase::ResetMovementSpeed()
 {
 	SetActorTickInterval(MovementSpeed);
-	SpeedUpEnable = false;
-	SpeedDownEnable = false;
+	bSpeedUpEnable = false;
+	bSpeedDownEnable = false;
 }
 
 void ASnakeBase::TimerResetMovementSpeed()
 {
-	GetWorld()->GetTimerManager().SetTimer(ResetSpeedTimerHandle, this, &ASnakeBase::ResetMovementSpeed, 5.0f, false);
+	GetWorld()->GetTimerManager().SetTimer(ResetSpeedTimerHandle, this, &ASnakeBase::ResetMovementSpeed, SpeedBonusDebufTime, false);
+}
+
+void ASnakeBase::SetDoubleFoodBonus()
+{
+	bDoubleFoodEnable = true;
+}
+
+void ASnakeBase::ResetDoubleFoodBonus()
+{
+	bDoubleFoodEnable = false;
+}
+
+void ASnakeBase::TimerResetDoubleFoodBonus()
+{
+	GetWorld()->GetTimerManager().SetTimer(ResetDoubleFoodTimerHandle, this, &ASnakeBase::ResetDoubleFoodBonus, DoubleFoodBonusTime, false);
 }
 
 //Timeline functions

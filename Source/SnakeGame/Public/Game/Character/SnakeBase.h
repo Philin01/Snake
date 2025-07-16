@@ -77,17 +77,28 @@ public:
 	bool bIsWin;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	bool SpeedUpEnable;
+	bool bSpeedUpEnable;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	bool SpeedDownEnable;
+	bool bSpeedDownEnable;
+
+	UPROPERTY(EditDefaultsOnly)
+	float SpeedBonusDebufTime;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	bool BarrierIgnoreEnable;
+	bool bBarrierIgnoreEnable;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bDoubleFoodEnable;
+
+	UPROPERTY(EditDefaultsOnly)
+	float DoubleFoodBonusTime;
 
 	FTimerHandle ImmortalTimerHandle;
 
 	FTimerHandle ResetSpeedTimerHandle;
+
+	FTimerHandle ResetDoubleFoodTimerHandle;
 
 	//Player variables
 	APlayerPawn* Player;
@@ -150,6 +161,12 @@ public:
 	void ResetMovementSpeed();
 
 	void TimerResetMovementSpeed();
+
+	void SetDoubleFoodBonus();
+
+	void ResetDoubleFoodBonus();
+
+	void TimerResetDoubleFoodBonus();
 
 	void PlayfromStartTimline();
 

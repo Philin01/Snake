@@ -11,11 +11,19 @@ void AFoodSpeedDownDebuf::Interact(AActor* Interactor, bool bIsHead)
 		auto Snake = Cast<ASnakeBase>(Interactor);
 		if (IsValid(Snake))
 		{
-			Snake->AddNewElement();
+			if (Snake->bDoubleFoodEnable)
+			{
+				Snake->AddNewElement(2);
+				Snake->ScoreCounter += 2;
+			}
+			else
+			{
+				Snake->AddNewElement();
+				Snake->ScoreCounter += 1;
+			}
 			Snake->SetMovementSpeed(2.0f);
-			Snake->SpeedDownEnable = true;
+			Snake->bSpeedDownEnable = true;
 			Snake->TimerResetMovementSpeed();
-			Snake->ScoreCounter += 1;
 			Snake->PlayfromStartTimline();
 			Snake->AddWidgetWinGame();
 			SpawnFood.Broadcast();

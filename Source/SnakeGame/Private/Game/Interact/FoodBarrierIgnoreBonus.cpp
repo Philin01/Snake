@@ -11,10 +11,18 @@ void AFoodBarrierIgnoreBonus::Interact(AActor* Interactor, bool bIsHead)
 		auto Snake = Cast<ASnakeBase>(Interactor);
 		if (IsValid(Snake))
 		{
-			Snake->AddNewElement();
+			if (Snake->bDoubleFoodEnable)
+			{
+				Snake->AddNewElement(2);
+				Snake->ScoreCounter += 2;
+			}
+			else
+			{
+				Snake->AddNewElement();
+				Snake->ScoreCounter += 1;
+			}
 			Snake->SetBarrierCollision();
 			Snake->TimerResetBarrierCollisionFunc();
-			Snake->ScoreCounter += 1;
 			Snake->PlayfromStartTimline();
 			Snake->AddWidgetWinGame();
 			SpawnFood.Broadcast();

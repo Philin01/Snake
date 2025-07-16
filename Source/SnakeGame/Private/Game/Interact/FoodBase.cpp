@@ -66,10 +66,18 @@ void AFoodBase::Interact(AActor* Interactor, bool bIsHead)
 		auto Snake = Cast<ASnakeBase>(Interactor);
 		if (IsValid(Snake))
 		{
-			Snake->AddNewElement(1);
+			if (Snake->bDoubleFoodEnable)
+			{
+				Snake->AddNewElement(2);
+				Snake->ScoreCounter += 2;
+			}
+			else
+			{
+				Snake->AddNewElement();
+				Snake->ScoreCounter += 1;
+			}
 			//Call our Delegate
 			SpawnFood.Broadcast();
-			Snake->ScoreCounter += 1;
 			//Reboot Timeline
 			Snake->PlayfromStartTimline();
 			Snake->AddWidgetWinGame();
