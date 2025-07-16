@@ -27,7 +27,7 @@ void APlayerPawn::BeginPlay()
 	
 	SetPaused(true);
 	SetActorRotation(FRotator(-50, 0, 0));
-	SetActorLocation(FVector(-850, 0, 1000));
+	SetActorLocation(FVector(-750, 0, 900));
 	CreateSnakeActor();
 }
 
